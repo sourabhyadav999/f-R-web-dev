@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <link rel="stylesheet" href="style/bootstrap.css">
+ <link rel="stylesheet" href="style/form-style.css">
+ <title>RESULT</title>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- jQuery CDN -->
+<!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+</script> -->
+
+
+<!-- SCRIPTS TO SEND FORM DATA TO API AND GET THE RESULT -->
+<script type="text/javascript">
+
+    // DATA VALUES VARIABLES
+        var article = localStorage.getItem("Article");
+       
+       
+
+        const data = {
+            "text": article,
+       
+        };
+
+
+
+        function goback()
+        {
+            window.open("main.html");
+        }
+
+    function ReadCookie() {
+        console.log(data);
+
+        //WRITE VALUES IN TABLE
+        document.getElementById("result").innerHTML = "Loading Result";
+        document.getElementById("news").innerHTML = article;
+        
+        
+
+
+        //POST REQUEST
+        const jsonString = JSON.stringify(data);
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "https://fakereal.herokuapp.com/prediction");
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == XMLHttpRequest.DONE) {
+                if (JSON.parse(xhr.responseText)['prediction'] == "Real") {
+                    document.getElementById("result").style.color = "green";
+                    document.getElementById("result").innerHTML = "Real";
+                } else {
+                    document.getElementById("result").style.color = "red";
+                    document.getElementById("result").innerHTML = "Fake";
+                }
+                
+            }
+        }
+
+        xhr.send(jsonString);
+        console.log("success");
+    }
+
+       
+       
+
+
+</script>
+
+</head>
+<body >
+  
+
+
+
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <h1>News Check</h1>
+          </li>
+        </ul>
+      </nav>
+      <div>
+        <p>
+          
+        
+        
+        
+        
+        
+        
+        </p>
+      </div>
+
+
+      <h1 id="result">RESULT</h1>
+        <input type="button" class="btn btn-dark btn-lg box-shadow--8dp btnclass" value="Get Result" onclick="ReadCookie();"> 
+                    
+
+
+     
+          <div class="form-group" style="margin-left:80px ;">
+            <label for="form" class="mt10 mb20" >
+            <textarea  id="news" class="form-control " placeholder="Paste the News article Here "  rows="25" cols="150" name="news"></textarea>
+            </label>
+
+          </div>
+          <div style="margin-left: 10px; margin-top:2px">
+            <button type="button" class="btn btn-info btn-lg" onclick="goback();" style="margin-left: 70px;">Go Back</button>
+            <button type="button" class="btn btn-info btn-lg" style="margin-left: 640px;">Check News with Image of News</button>
+          </div>
+      
+
+     
+      
+</body>
+
+
+
+</html>
