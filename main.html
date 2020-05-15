@@ -1,100 +1,122 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>News Check</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <!-- Google Font  -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Bootstrap CSS  -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-   
-    
     <script type="text/javascript">
+      function readval() {
+        value = document.form1.news.value;
+        console.log(value);
+        localStorage.setItem("Article", value);
 
-
-
-      function readval()
-      {
-        
-         value=document.form1.news.value;
-         localStorage.setItem("Article",value);
-
-
-         window.open("response.html");
+        window.open("response.html");
       }
 
-
-
-      function gopro()
-      {
-        alert("Go Pro")
+      function gopro() {
+        alert("Go Pro");
       }
-      
-      
-      </script>
-
-
-
-
+    </script>
   </head>
 
-
-<body class="bg-dark mystyle coolstyle">
-  
-
-
-
-    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <h1>News Check</h1>
-          </li>
+  <body class="">
+    <!-- NAV BAR  -->
+    <nav class="navbar navbar-expand-sm bg-primary">
+      <div class="container">
+        <a class="navbar-brand text-white" href="#">News Check</a>
+        <ul class="navbar-nav mr-auto">
+          <!-- other links goes here in li like below one  -->
+          <!-- <li class="nav-item">
+            <a class="nav-link text-white" href="#">Home</a>
+          </li> -->
         </ul>
-      </nav>
-      <div>
-        <p>
-          
-        
-        
-        
-        
-        
-        
-        </p>
       </div>
+    </nav>
 
+    <!-- Other Content  -->
+    <div class="container">
+      <form action="" name="form1">
+        <div class="form-group mt-2">
+          <!-- <label for="news">Example textarea</label> -->
+          <textarea class="form-control" id="news" name="news" rows="20">
+Paste the News article Here
+          </textarea>
+        </div>
 
-      <form  class="form-horizontal"  name="form1">
-          <div class="form-group" style="margin-left:80px ;">
-            <label for="form" class="mt10 mb20" >
-            <textarea  id="news" class="form-control " placeholder="Paste the News article Here "  rows="25" cols="150" name="news"></textarea>
-            </label>
-
+        <div class="row">
+          <div class="col-12 col-sm-6 mb-2">
+            <button
+              type="submit"
+              class="btn btn-outline-info btn-lg btn-block"
+              onclick="readval();"
+            >
+              Check Authenticity
+            </button>
           </div>
-          <div style="margin-left: 10px; margin-top:2px">
-            <button type="submit" class="btn btn-info btn-lg" onclick="readval();" style="margin-left: 70px;">Check Authenticity</button>
-            <button type="button" class="btn btn-info btn-lg"  onclick="gopro();"style="margin-left: 640px;">Check News with Image of News</button>
+          <div class="col-12 col-sm-6 mb-2">
+            <button
+              type="submit"
+              class="btn btn-outline-info btn-lg btn-block"
+              onclick="gopro();"
+            >
+              Check News with Image of News
+            </button>
           </div>
+        </div>
       </form>
+    </div>
 
-     
-      
-</body>
+    <div>
+      <p></p>
+    </div>
 
-
-
-
-
-
+    <!-- 
+    <form class="form-horizontal" name="form1">
+      <div class="form-group" style="margin-left: 80px;">
+        <label for="form" class="mt10 mb20">
+          <textarea
+            id="news"
+            class="form-control"
+            placeholder="Paste the News article Here "
+            rows="25"
+            cols="150"
+            name="news"
+          ></textarea>
+        </label>
+      </div>
+      <div style="margin-left: 10px; margin-top: 2px;">
+        <button
+          type="submit"
+          class="btn btn-info btn-lg"
+          onclick="readval();"
+          style="margin-left: 70px;"
+        >
+          Check Authenticity
+        </button>
+        <button
+          type="button"
+          class="btn btn-info btn-lg"
+          onclick="gopro();"
+          style="margin-left: 640px;"
+        >
+          Check News with Image of News
+        </button>
+      </div>
+    </form> 
+  --></body>
 </html>
-
