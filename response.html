@@ -27,10 +27,6 @@
         text: article,
       };
 
-      function goback() {
-        window.open("main.html");
-      }
-
       function ReadCookie() {
         console.log(data);
 
@@ -98,13 +94,9 @@ Paste the News article Here
 
       <div class="row">
         <div class="col-12 col-sm-6 mb-2">
-          <button
-            type="submit"
-            class="btn btn-outline-info btn-lg btn-block"
-            onclick="goback();"
+          <a href="main.html" class="btn btn-outline-secondary btn-lg btn-block"
+            >Go back</a
           >
-            Go Back
-          </button>
         </div>
         <div class="col-12 col-sm-6 mb-2">
           <button type="submit" class="btn btn-outline-info btn-lg btn-block">
