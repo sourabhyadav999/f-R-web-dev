@@ -9,8 +9,7 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="style/bootstrap.css" />
-    <link rel="stylesheet" href="style/form-style.css" />
+    <link rel="stylesheet" href="styles.css" />
     <title>RESULT</title>
     <meta charset="utf-8" />
     <meta
@@ -44,10 +43,10 @@
           if (xhr.readyState == XMLHttpRequest.DONE) {
             if (JSON.parse(xhr.responseText)["prediction"] == "Real") {
               document.getElementById("result").style.color = "green";
-              document.getElementById("result").innerHTML = "Real";
+              document.getElementById("result").innerHTML = "REAL";
             } else {
-              document.getElementById("result").style.color = "red";
-              document.getElementById("result").innerHTML = "Fake";
+              document.getElementById("result").style.color = "yellow";
+              document.getElementById("result").innerHTML = "FAKE";
             }
           }
         };
@@ -73,33 +72,38 @@
 
     <!-- Other Content  -->
     <div class="container">
-      <div class="text-center">
-        <h1 id="result">RESULT</h1>
-        <div class="form-group">
+      <div class="text-center inline-block mt-2 heading">
+        <span id="result">RESULT</span>
+        <span class="form-group">
           <input
             type="button"
-            class="btn btn-outline-dark btn-sm"
+            class="btn btn-dark shadow"
             value="Get Result"
             onclick="ReadCookie();"
           />
-        </div>
+        </span>
       </div>
 
       <div class="form-group mt-2">
         <!-- <label for="news">News Input Box</label> -->
-        <textarea class="form-control" id="news" name="news" rows="20">
+        <textarea
+          class="form-control shadow my-textarea"
+          id="news"
+          name="news"
+          rows="13"
+        >
 Paste the News article Here</textarea
         >
       </div>
 
       <div class="row">
         <div class="col-12 col-sm-6 mb-2">
-          <a href="main.html" class="btn btn-outline-secondary btn-lg btn-block"
+          <a href="main.html" class="btn btn-secondary btn-lg btn-block shadow"
             >Go back</a
           >
         </div>
         <div class="col-12 col-sm-6 mb-2">
-          <button type="submit" class="btn btn-outline-info btn-lg btn-block">
+          <button type="submit" class="btn btn-primary btn-lg btn-block shadow">
             Check News with Image of News
           </button>
         </div>

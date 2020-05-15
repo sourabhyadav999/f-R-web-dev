@@ -19,6 +19,8 @@
       crossorigin="anonymous"
     />
 
+    <link rel="stylesheet" href="styles.css" />
+
     <script type="text/javascript">
       function readval() {
         value = document.form1.news.value;
@@ -51,7 +53,12 @@
       <form action="response.html" action="GET" name="form1">
         <div class="form-group mt-2">
           <!-- <label for="news">Example textarea</label> -->
-          <textarea class="form-control" id="news" name="news" rows="20">
+          <textarea
+            class="form-control shadow my-textarea"
+            id="news"
+            name="news"
+            rows="15"
+          >
 Paste the News article Here</textarea
           >
         </div>
@@ -60,7 +67,7 @@ Paste the News article Here</textarea
           <div class="col-12 col-sm-6 mb-2">
             <button
               type="submit"
-              class="btn btn-outline-success btn-lg btn-block"
+              class="btn btn-success btn-lg btn-block shadow"
               onclick="readval();"
             >
               Check Authenticity
@@ -69,7 +76,7 @@ Paste the News article Here</textarea
           <div class="col-12 col-sm-6 mb-2">
             <button
               type="submit"
-              class="btn btn-outline-info btn-lg btn-block"
+              class="btn btn-primary btn-lg btn-block shadow"
               onclick="gopro();"
             >
               Check News with Image of News
